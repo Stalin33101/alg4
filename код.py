@@ -7,7 +7,7 @@ class LinkShortener:
         self.counter = 1  # для генерации коротких кодов
 
     def _generate_code(self):
-        """генерирует короткий код (просто число)"""
+        #генерирует короткий код (просто число)
         code = str(self.counter)
         self.counter += 1
         return code
@@ -41,32 +41,30 @@ class LinkShortener:
         """выводит все сокращённые ссылки"""
         return self.short_to_long
 
-    #ПУНКТ 10: обратный поиск 
+    #ПУНКТ 10
     def find_by_long_url(self, long_url):
-        """находит короткий код по длинной ссылке"""
+        #находит короткий код по длинной ссылке
         if long_url in self.long_to_short:
             return self.long_to_short[long_url]
         else:
             return None
 
 
-# проверка работы
-if __name__ == "__main__":
-    ls = LinkShortener()
 
-    # добавляем ссылки
-    ls.add_link("https://example.com/python")
-    ls.add_link("https://google.com")
-    ls.add_link("https://example.com/java")
+ls = LinkShortener()
 
-    print("\n--- Прямой поиск ---")
-    print("Код 1 ->", ls.get_long_url("1"))
-    print("Код 2 ->", ls.get_long_url("2"))
-    print("Существует ли код 5?", ls.exists("5"))
+ls.add_link("https://example.com/python")
+ls.add_link("https://google.com")
+ls.add_link("https://example.com/java")
 
-    print("\n--- Все ссылки ---")
-    print(ls.get_all_links())
+print("\n--- Прямой поиск ---")
+print("Код 1 ->", ls.get_long_url("1"))
+print("Код 2 ->", ls.get_long_url("2"))
+print("Существует ли код 5?", ls.exists("5"))
 
-    print("\n--- ПУНКТ 10: обратный поиск ---")
-    print("Ищем код для https://google.com:", ls.find_by_long_url("https://google.com"))
-    print("Ищем код для https://yandex.ru:", ls.find_by_long_url("https://yandex.ru"))
+print("\nВсе ссылки")
+print(ls.get_all_links())
+
+print("\n ПУНКТ 10: обратный поиск")
+print("Ищем код для https://google.com:", ls.find_by_long_url("https://google.com"))
+print("Ищем код для https://yandex.ru:", ls.find_by_long_url("https://yandex.ru"))
