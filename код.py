@@ -6,7 +6,7 @@ class LinkShortener:
         self.long_to_short = {}
         self.counter = 1  # для генерации коротких кодов
 
-    def _generate_code(self):
+    def generate_code(self):
         #генерирует короткий код (просто число)
         code = str(self.counter)
         self.counter += 1
@@ -20,7 +20,7 @@ class LinkShortener:
             return self.long_to_short[long_url]
         
         # создаём новый короткий код
-        short_code = self._generate_code()
+        short_code = self.generate_code()
         self.short_to_long[short_code] = long_url
         self.long_to_short[long_url] = short_code  # обратный поиск
         print("Добавлено:", short_code, "->", long_url)
