@@ -13,7 +13,7 @@ class LinkShortener:
         return code
 
     def add_link(self, long_url):
-        """добавляет новую ссылку"""
+        #добавляет новую ссылку
         # проверяем, существует ли уже такая длинная ссылка (пункт 10 поможет)
         if long_url in self.long_to_short:
             print("Такая ссылка уже есть, её код:", self.long_to_short[long_url])
@@ -27,18 +27,18 @@ class LinkShortener:
         return short_code
 
     def get_long_url(self, short_code):
-        """получает длинную ссылку по короткому коду"""
+        #получает длинную ссылку по короткому коду
         if short_code in self.short_to_long:
             return self.short_to_long[short_code]
         else:
             return None
 
     def exists(self, short_code):
-        """проверяет, существует ли короткий код"""
+        #проверяет, существует ли короткий код
         return short_code in self.short_to_long
 
     def get_all_links(self):
-        """выводит все сокращённые ссылки"""
+        #выводит все сокращённые ссылки
         return self.short_to_long
 
     #ПУНКТ 10
@@ -57,7 +57,7 @@ ls.add_link("https://example.com/python")
 ls.add_link("https://google.com")
 ls.add_link("https://example.com/java")
 
-print("\n--- Прямой поиск ---")
+print("\nПрямой поиск")
 print("Код 1 ->", ls.get_long_url("1"))
 print("Код 2 ->", ls.get_long_url("2"))
 print("Существует ли код 5?", ls.exists("5"))
