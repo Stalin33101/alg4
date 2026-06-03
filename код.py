@@ -14,7 +14,7 @@ class LinkShortener:
 
     def add_link(self, long_url):
         #добавляет новую ссылку
-        # проверяем, существует ли уже такая длинная ссылка (пункт 10 поможет)
+        # проверяем, существует ли уже такая длинная ссылка 
         if long_url in self.long_to_short:
             print("Такая ссылка уже есть, её код:", self.long_to_short[long_url])
             return self.long_to_short[long_url]
